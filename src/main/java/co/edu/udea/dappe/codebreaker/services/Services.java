@@ -24,7 +24,7 @@ public class Services {
 	public String guessNumber () {
 		String result = null;
 		try {
-			result = "Hola, este es Code Breaker, si quieres adivinar un numero dirigete a /codebreaker/tu_numero, suerte";
+			result = "Hola, este es Code Breaker, si quieres adivinar un numero dirigete a /guess/tu_numero, suerte";
 		} catch (Exception e ) {
 			return "Ha ocurrido un error inesperado "+ e.getCause().getMessage();
 		}

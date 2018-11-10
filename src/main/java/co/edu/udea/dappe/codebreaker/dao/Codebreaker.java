@@ -4,12 +4,12 @@ import java.util.Random;
 
 public class Codebreaker {
 
-	private String secret;
+	private String secret = "";
 
 	public Codebreaker() {
 		
 	}
-
+	
 	public void setSecret(String secret) {
 		if(secret.isEmpty()) {
 			this.secret = this.generateSecret();

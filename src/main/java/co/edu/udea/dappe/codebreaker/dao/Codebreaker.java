@@ -7,14 +7,21 @@ public class Codebreaker {
 	private String secret;
 
 	public Codebreaker() {
-		this.secret = this.generateSecret();
+		
 	}
 
 	public void setSecret(String secret) {
+		if(secret.isEmpty()) {
+			this.secret = this.generateSecret();
+			return;
+		}
 		this.secret = secret;
 	}
 
 	public String decode(String input) {
+		if(this.secret.isEmpty()) {
+			return "No se ha asignado un secret";
+		}
 		String[] secretVector = secret.split("");
 		String[] inputVector = input.split("");
 		String answerNumber = "";

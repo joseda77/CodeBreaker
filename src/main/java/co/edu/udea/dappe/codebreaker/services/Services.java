@@ -13,12 +13,23 @@ import co.edu.udea.dappe.codebreaker.dto.Response;
 
 
 @RestController
-@RequestMapping("/codebreaker")
+@RequestMapping("/")
 public class Services {
 	
 	public Codebreaker codebreaker = new Codebreaker();
 	
-	@GetMapping(value="/{number}")
+	@RequestMapping("/")
+	public String guessNumber () {
+		String result = null;
+		try {
+			result = "Hola, este es Code Breaker, si quieres adivinar un numero dirigete a /codebreaker/tu_numero, suerte";
+		} catch (Exception e ) {
+			return "Ha ocurrido un error inesperado "+ e.getCause().getMessage();
+		}
+		return result;
+    }
+	
+	@GetMapping(value="/codebreaker/{number}")
     public Response guessNumber (@PathVariable("number") String number) {
 		String result = null;
 		try {
@@ -34,7 +45,7 @@ public class Services {
 		return new Response(result, HttpStatus.OK.toString());
     }
 	
-	@PostMapping("/secret")
+	@PostMapping("/codebreaker/secret")
 	public Response setSecret (@RequestBody JsonNode secret) {
 		String number = secret.get("secret").toString();
 		try {

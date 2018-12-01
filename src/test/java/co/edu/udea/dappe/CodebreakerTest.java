@@ -12,7 +12,7 @@ public class CodebreakerTest {
 	private String realAnswer;
 	
 	@Before
-	public void setup() {
+	public void setUp() {
 		cb = new Codebreaker();
 		cb.setSecret("1234");
 	}
@@ -30,7 +30,7 @@ public class CodebreakerTest {
 	}
 	
 	@Test
-	public void oneCoincidenceByNumber_0100() {
+	public void oneCoincidenceByNumber0100() {
 		realAnswer = cb.decode("0100");
 		assertEquals("_", realAnswer);
 	}
